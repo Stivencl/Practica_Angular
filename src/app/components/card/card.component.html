@@ -1,0 +1,16 @@
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+     <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+         <mat-card-subtitle>Medium</mat-card-subtitle>
+         <img mat-card-md-image [src]="imgurl" alt="Image of a Shiba Inu">
+        </mat-card-title-group>
+        </mat-card-header>
+    <mat-card-content>
+        {{longText}}
+        @if(valorDelHijo){
+            <p><b>valor recibido desde el hijo es ==> {{valorDelHijo}}</b></p>
+        }
+    </mat-card-content>
+</mat-card>
+<app-slider title="Hijo del card" (emisor)="onEmit($event)"/>

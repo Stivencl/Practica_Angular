@@ -1,20 +1,27 @@
 import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
 import { SliderComponent } from "../slider/slider.component";
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { ObservableService } from '../../services/observable.service';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [MaterialModule, SliderComponent],
+  imports: [MaterialModule, SliderComponent, CommonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
 export class CardComponent implements OnInit, DoCheck, OnDestroy{
    contador = 0;
-  constructor(){
-    console.log('constructor')
-
-  }
+     
+   reloj: Observable<string>  
+    constructor(
+    private observableService: ObservableService //los servicios deben siempre empezar con private
+     ){ 
+    this.reloj = this.observableService.time;
+    }
+  
   ngDoCheck(): void {
     this.contador++;
     console.log('DoCheck', this.contador);

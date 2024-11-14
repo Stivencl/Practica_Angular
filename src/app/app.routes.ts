@@ -18,6 +18,13 @@ export const routes: Routes = [
         
         loadComponent: () => import('./components/input/input.component').then(m => m.InputComponent) 
     },
+     
 
+    {
+        path: 'observable',
+        
+    
+        loadComponent: () => import('./components/observable/observable.component').then(m => m.ObservableComponent)
+    },
     
 ];

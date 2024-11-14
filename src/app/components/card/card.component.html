@@ -11,6 +11,10 @@
         @if(valorDelHijo){
             <p><b>valor recibido desde el hijo es ==> {{valorDelHijo}}</b></p>
         }
+
+        <h6>
+            La hora actual {{reloj | async}}
+        </h6>
     </mat-card-content>
 </mat-card>
 <app-slider title="Hijo del card" (emisor)="onEmit($event)"/>
